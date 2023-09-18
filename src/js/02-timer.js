@@ -27,7 +27,7 @@ const options = {
 flatpickr(imputDate, options);
 
 function getDifferenceTime(selectedDate, defaultDate) {
-  clearInterval(timerId);
+  clearInterval();
 
   timeDifference = selectedDate - defaultDate;
 
@@ -38,7 +38,6 @@ function getDifferenceTime(selectedDate, defaultDate) {
   }
   btnStart.removeAttribute('disabled');
   formatDate = convertMs(timeDifference);
-
   btnStart.addEventListener('click', startTimer);
 }
 function startTimer() {
@@ -49,7 +48,6 @@ function startTimer() {
 function updateTimerDisplay() {
   if (timeDifference <= 0) {
     clearInterval(timerId);
-    //   Notify.success('Time is up!');
     return;
   }
 
