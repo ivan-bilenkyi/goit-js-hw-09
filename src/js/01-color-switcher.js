@@ -2,8 +2,6 @@ const startBtn = document.querySelector('button[data-start]');
 const stopBtn = document.querySelector('button[data-stop]');
 const body = document.querySelector('body');
 
-body.style.backgroundColor = localStorage.getItem('randomColor');
-
 let timerId = null;
 stopBtn.disabled = true;
 
@@ -18,7 +16,6 @@ startBtn.addEventListener('click', () => {
   stopBtn.disabled = false;
   timerId = setInterval(() => {
     const randomColor = getRandomHexColor();
-    localStorage.setItem('randomColor', randomColor);
     body.style.backgroundColor = randomColor;
   }, 1000);
 });
