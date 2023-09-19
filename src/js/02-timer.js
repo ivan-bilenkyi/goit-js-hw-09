@@ -42,12 +42,14 @@ function getDifferenceTime(selectedDate, defaultDate) {
 }
 function startTimer() {
   btnStart.setAttribute('disabled', true);
+  imputDate.setAttribute('disabled', true);
   updateTimerDisplay();
   timerId = setInterval(updateTimerDisplay, 1000);
 }
 function updateTimerDisplay() {
   if (timeDifference <= 0) {
     clearInterval(timerId);
+    imputDate.removeAttribute('disabled');
     return;
   }
 
